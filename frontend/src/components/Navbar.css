@@ -1,0 +1,55 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    margin-inline: 30px;
+    position: sticky;
+}
+
+.navbar .right-nav .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .right-nav .nav-links li {
+    list-style: none;
+    padding-right: 10px;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar .right-nav .nav-links li .fa-plus {
+    margin-left: .2rem;
+    color: Red;
+}
+
+.navbar .right-nav .nav-links a {
+    color: Gray;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.navbar .right-nav .nav-links .textLight {
+    color: Gray;
+}
+
+.navbar .right-nav .nav-links li:hover {
+    border-bottom: 2px solid Gray;
+}
+
+.navbar .right-nav .nav-links a:hover {
+    color: #4f4f4f;
+}
+
+.navbar .right-nav .nav-links .btn-logout {
+    background-color: transparent;
+    border: none;
+    color: Gray;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.navbar .right-nav .nav-links .btn-logout:hover {
+    color: #4f4f4f;
+}
