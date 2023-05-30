@@ -1,104 +1,104 @@
-.loginForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.login-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 5rem;
+  font-family: var(--body-font);
 }
 
 .wrapper {
-    height: 478px;
-    width: 80%;
-    background-color: #dbdbdb;
-    box-shadow: 0 0 30px #f8f8f8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #636363;
-    font-size: 16px;
-    font-weight: 400;
-    position: relative;
-    font-family: var(--body-font);
-    margin-top: 10rem;
-    margin-bottom: 38rem;
-    border-radius: 1rem;
-  }
-  
-  .wrapper form {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
-  
-  .wrapper form .loginRegister {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .wrapper form .loginRegister a {
-    color: Gray;
-    text-decoration: none;
-    font-size: 16px;
-    transition: 0.4s;
-  }
-  
-  .wrapper form .loginRegister a:hover {
-    color: Red;
-  }
-  
-  .wrapper form .login-row p {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .wrapper form .login-row p a {
-    margin-left: 10px;
-    text-decoration: none;
-    color: blue;
-  }
-  
-  .wrapper form .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-align: left;
-  }
-  
-  .wrapper form .checkbox #checkbox {
-    fill: rgb(250, 250, 250);
-    width: 15px;
-  }
-  
-  .wrapper form input {
-    height: 50px;
-    width: 1062px;
-    background-color: rgb(250, 250, 250);
-    padding: 5px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 1rem;
-  }
-  
-  .wrapper form label {
-    margin-bottom: 10px;
-  }
-  
-  .wrapper form .error {
-    color: Red;
-  }
-  
-  .wrapper form #btn-submit {
-    height: 50px;
-    width: 142px;
-    letter-spacing: 0.01em;
-    padding: 0px 45px;
-    background-color: Red;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 450;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 20px;
-  }
-  
+  height: 478px;
+  width: 80%;
+  background-color: #f1ebeb;
+  box-shadow: 0 0 30px #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #636363;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  font-family: var(--body-font);
+  margin-top: 10rem;
+  margin-bottom: 38rem;
+}
+
+.wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.wrapper form .loginRegister {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.wrapper form .loginRegister a {
+  color: Gray;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.4s;
+}
+
+.wrapper form .loginRegister a:hover {
+  color: Red;
+}
+
+.wrapper form .login-row p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.wrapper form .login-row p a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: blue;
+}
+
+.wrapper form .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+}
+
+.wrapper form .checkbox #checkbox {
+  fill: rgb(250, 250, 250);
+  width: 15px;
+}
+
+.wrapper form input {
+  height: 50px;
+  width: 1062px;
+  background-color: rgb(250, 250, 250);
+  padding: 5px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.wrapper form label {
+  margin-bottom: 10px;
+}
+
+.wrapper form .error {
+  color: Red;
+}
+
+.wrapper form #btn-submit {
+  height: 50px;
+  width: 142px;
+  letter-spacing: 0.01em;
+  padding: 0px 45px;
+  background-color: Red;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 450;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}

@@ -80,6 +80,7 @@ function LoginForm({ user, setUser}) {
 
   return (
     <div className="loginForm">
+      <div className='login-parent'>
       <div className="wrapper">
 
       
@@ -123,6 +124,7 @@ function LoginForm({ user, setUser}) {
 
           <button type="submit" id="btn-submit">Submit</button>
         </form>
+      </div>
       </div>
     </div>
   );
