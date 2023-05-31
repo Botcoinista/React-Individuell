@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [updatedProduct, setUpdatedProduct] = useState({});
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     // Fetch the specific product using the productId from the URL
@@ -16,8 +19,8 @@ const ProductDetails = () => {
   }, [productId]);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUpdatedProduct({ ...updatedProduct, [name]: value });
+    const { id, value } = e.target;
+    setUpdatedProduct({ ...updatedProduct, [id]: value });
   };
 
   const handleUpdateProduct = (e) => {
@@ -29,6 +32,7 @@ const ProductDetails = () => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(updatedProduct),
     })
@@ -42,6 +46,7 @@ const ProductDetails = () => {
       })
       .catch((err) => console.log(err));
   };
+  
 
   if (!product) {
     return <p>Loading...</p>;
@@ -52,7 +57,7 @@ const ProductDetails = () => {
     <div className="product-details-container">
       <div className="product-details-card">
         <div className="img">
-          <img src={product.imgURL} alt={product.name} />
+          <img src={updatedProduct.imgURL} alt={product.name} />
         </div>
         <div className="product-details-right">
           <div className="details">
@@ -65,32 +70,32 @@ const ProductDetails = () => {
             <label htmlFor="name">Name:</label>
             <input
               type="text"
-              name="name"
+              id="name"
               value={updatedProduct.name || product.name}
               onChange={handleInputChange}
             />
             <label htmlFor="category">Category:</label>
             <input
               type="text"
-              name="category"
+              id="category"
               value={updatedProduct.category || product.category}
               onChange={handleInputChange}
             />
             <label htmlFor="price">Price:</label>
             <input
               type="text"
-              name="price"
+              id="price"
               value={updatedProduct.price || product.price}
               onChange={handleInputChange}
             />
             <label htmlFor="description">Description:</label>
             <textarea
-              name="description"
+              id="description"
               value={updatedProduct.description || product.description}
               onChange={handleInputChange}
             />
             <div className="update-btn">
-              <button type="submit">Update Product</button>
+              <button onClick={() => navigate(`/productlist`)} type="submit">Update Product</button>
             </div>
           </form>
         </div>

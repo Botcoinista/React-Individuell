@@ -42,21 +42,30 @@ function LoginForm({ user, setUser}) {
 
     try {
 
-    const res = await axios.post('http://localhost:8080/api/users/login', formData)
+    const res = await axios.post('http://localhost:8080/api/users/loginadmin', formData)
       console.log(res)
       if(res.data) {
         //Setting user to the data stored in the MongoDB
         setUser(res.data)
+       
 
         //Save usertoken 
         localStorage.setItem('token', res.data.token)
+
+      //Ulrikas code
+        // if(res.data === 200) {
+        //   const { token } = res.data
+        //    //Save usertoken 
+        //    localStorage.setItem('token', token)
+        //   //Setting user to the data stored in the MongoDB
+        //   setUser(formData.email)
 
         //Resets the login-form
         setFormData({
           email: '',
           password: ''
         })
-        navigate('/')
+        navigate('/productlist')
 
       }
     } catch (err) {
@@ -86,7 +95,7 @@ function LoginForm({ user, setUser}) {
       
         <form onSubmit={handleSubmit} noValidate>
           <div className='loginRegister'>
-            <p>Please Login To Your Account,</p>
+            <p>Please Login To get Admin Access</p>
           </div>
         <br></br>
         

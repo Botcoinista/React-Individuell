@@ -16,12 +16,18 @@ const ProductList = () => {
   }, []);
   return (
     <div>
+      <div onClick={() => navigate(`/add`)} className="Parent-add-product-btn">
+        <button className="add-product-btn">ADD PRODUCT</button>
+      </div>
       <h1 className="product-h1">Product List</h1>
       <div className="productlist-container">
         <div className="product-row">
           {products.map((product) => (
             <div key={product._id}>
-              <div onClick={() => navigate(`/productdetails/${product._id}`)} className="product-card">
+              <div
+                onClick={() => navigate(`/productdetails/${product._id}`)}
+                className="product-card"
+              >
                 <div className="img">
                   <img src={product.imgURL} alt={product.name} />
                 </div>
@@ -29,12 +35,22 @@ const ProductList = () => {
                   <div className="details">
                     <p>{product.name}</p>
                     <p>{product.category}</p>
-                    <p>{product.price}</p>
+                    <p>€ {product.price}</p>
                     <p>{product.description}</p>
                   </div>
                   <div className="btn-parent">
-                  <button onClick={() => navigate(`/productdetails/${product._id}`)} className="delete-btn">Delete</button>
-                  <button onClick={() => navigate(`/productdetails/${product._id}`)} className="product-btn">Edit</button>
+                    <button
+                      onClick={() => navigate(`/productdetails/${product._id}`)}
+                      className="delete-btn"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() => navigate(`/productdetails/${product._id}`)}
+                      className="product-btn"
+                    >
+                      Edit
+                    </button>
                   </div>
                 </div>
               </div>

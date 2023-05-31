@@ -5,6 +5,7 @@ import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import ProductList from './pages/ProductList/ProductList'
 import ProductDetails from './pages/ProductDetails.jsx/ProductDetails'
+import AddProduct from './pages/AddProduct/AddProduct'
 import LoginForm from './pages/Login/Login'
 
 
@@ -24,16 +25,20 @@ const App = () => {
         },
         {
           path: '/login',
-          element: <Login user={user} setUser={setUser} />
+          element: <Login setUser={setUser} />
         },
         {
           path: '/productlist',
-          element: <ProductList />
+          element: <ProductList user={user} />
         },
         {
           path: '/productdetails/:productId',
           element: <ProductDetails />
         },
+        {
+          path: '/add',
+          element: <AddProduct />
+        }
       ]
     }
   ])
