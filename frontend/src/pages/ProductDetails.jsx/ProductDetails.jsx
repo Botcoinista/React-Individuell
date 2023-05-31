@@ -70,7 +70,10 @@ const ProductDetails = () => {
     <div className="product-details-container">
       <div className="product-details-card">
         <div className="img">
-          <img src={updatedProduct.imgURL || product.imgURL} alt={product.name} />
+          <img
+            src={updatedProduct.imgURL || product.imgURL}
+            alt={product.name}
+          />
         </div>
         <div className="product-details-right">
           <div className="details">
@@ -85,39 +88,66 @@ const ProductDetails = () => {
             <input
               type="text"
               id="name"
-              value={updatedProduct.name !== undefined ? updatedProduct.name : product.name}
+              value={
+                updatedProduct.name !== undefined
+                  ? updatedProduct.name
+                  : product.name
+              }
               onChange={handleInputChange}
             />
             <label htmlFor="category">Category:</label>
             <input
               type="text"
               id="category"
-              value={updatedProduct.category !== undefined ? updatedProduct.category : product.category}
+              value={
+                updatedProduct.category !== undefined
+                  ? updatedProduct.category
+                  : product.category
+              }
               onChange={handleInputChange}
             />
             <label htmlFor="imgURL">Img:</label>
             <input
               type="text"
               id="imgURL"
-              value={updatedProduct.imgURL !== undefined ? updatedProduct.imgURL : product.imgURL}
+              value={
+                updatedProduct.imgURL !== undefined
+                  ? updatedProduct.imgURL
+                  : product.imgURL
+              }
               onChange={handleInputChange}
             />
             <label htmlFor="price">Price:</label>
             <input
               type="text"
               id="price"
-              value={updatedProduct.price !== undefined ? updatedProduct.price : product.price}
+              value={
+                updatedProduct.price !== undefined
+                  ? updatedProduct.price
+                  : product.price
+              }
               onChange={handleInputChange}
             />
             <label htmlFor="description">Description:</label>
             <textarea
               id="description"
-              value={updatedProduct.description !== undefined ? updatedProduct.description : product.description}
+              value={
+                updatedProduct.description !== undefined
+                  ? updatedProduct.description
+                  : product.description
+              }
               onChange={handleInputChange}
             />
             <div className="update-btn">
-              <button type="submit" disabled={isUpdating}>
-                {isUpdating ? "Updating Product..." : "Update Product"}
+              <button
+                type="submit"
+                // disabled={isUpdating} // Disable the button when isUpdating is true
+                style={{
+                  backgroundColor: isUpdating ? "green" : "red", // Changes the background color to green when submitting
+                }}
+              >
+                {isUpdating ? "Updating Product..." : "Update Product"}  {/* {Change the button text to "Updating Product..." when submitting} */}
+              
               </button>
             </div>
           </form>
