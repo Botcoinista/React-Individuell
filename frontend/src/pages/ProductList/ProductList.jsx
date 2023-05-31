@@ -9,13 +9,14 @@ const ProductList = () => {
   const navigate = useNavigate();
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const handleDeleteProduct = (productId) => {
+  const handleDeleteProduct = (event, productId) => {
+    event.stopPropagation();
+  
     const token = localStorage.getItem("token");
   
     setIsDeleting(true);
   
-    setTimeout(() => { // Set a delay of 2 seconds before deleting the product
-      // DELETE PRODUCT FROM DATABASE
+    setTimeout(() => {
       fetch(`http://localhost:8080/api/products/${productId}`, {
         method: "DELETE",
         headers: {
@@ -30,11 +31,14 @@ const ProductList = () => {
             prevProducts.filter((product) => product._id !== productId)
           );
         })
-        .catch((err) => console.log(err));
-        
-      setIsDeleting(false); // Set isDeleting back to false after the delay
-    }, 2000);  
+        .catch((err) => console.log(err))
+        .finally(() => {
+          setIsDeleting(false); // Set isDeleting back to false after the delay
+        });
+    }, 2000);
   };
+  
+
 
   // Fetches all products from the database
   useEffect(() => {
@@ -75,7 +79,7 @@ const ProductList = () => {
                   </div>
                   <div className="btn-parent">
                     <button
-                      onClick={() => handleDeleteProduct(product._id)} // Pass the productId to the handleDeleteProduct function
+                      onClick={(event) => handleDeleteProduct(event, product._id)} // Pass the productId to the handleDeleteProduct function
                       className="delete-btn"
                     >
                       {isDeleting ? "Deleting..." : "Delete"}
