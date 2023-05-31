@@ -5,30 +5,37 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]); 
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDeleteProduct = (productId) => {
-    const token = localStorage.getItem("token"); // Retrieves the token from localStorage
-
-    // Deletes the product from the database
-    fetch(`http://localhost:8080/api/products/${productId}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`, // Attaches the token to the request
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        alert("Product deleted successfully");
-        console.log("Product deleted successfully:", data);
-
-        setProducts((prevProducts) => 
-        prevProducts.filter((product) => product._id !== productId) // Filters out the deleted product from the products state, makes the page update without having to refresh
-        )
+    const token = localStorage.getItem("token");
+  
+    setIsDeleting(true);
+  
+    setTimeout(() => { // Set a delay of 2 seconds before deleting the product
+      // DELETE PRODUCT FROM DATABASE
+      fetch(`http://localhost:8080/api/products/${productId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .catch((err) => console.log(err));
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Product deleted successfully:", data);
+  
+          setProducts((prevProducts) =>
+            prevProducts.filter((product) => product._id !== productId)
+          );
+        })
+        .catch((err) => console.log(err));
+        
+      setIsDeleting(false); // Set isDeleting back to false after the delay
+    }, 2000);  
   };
+
   // Fetches all products from the database
   useEffect(() => {
     fetch("http://localhost:8080/api/products")
@@ -71,7 +78,7 @@ const ProductList = () => {
                       onClick={() => handleDeleteProduct(product._id)} // Pass the productId to the handleDeleteProduct function
                       className="delete-btn"
                     >
-                      Delete
+                      {isDeleting ? "Deleting..." : "Delete"}
                     </button>
                     <button
                       onClick={() => navigate(`/productdetails/${product._id}`)} // Pass the productId to the handleDeleteProduct function

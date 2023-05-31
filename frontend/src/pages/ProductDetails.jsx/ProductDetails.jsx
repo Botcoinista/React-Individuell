@@ -59,7 +59,7 @@ const ProductDetails = () => {
           console.log(err);
           setIsUpdating(false); // Set isUpdating back to false in case of an error
         });
-    }, 2000);
+    }, 800);
   };
 
   if (!product) {

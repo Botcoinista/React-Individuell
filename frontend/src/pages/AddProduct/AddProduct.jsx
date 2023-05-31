@@ -7,6 +7,7 @@ const AddProduct = () => {
   const token = localStorage.getItem("token");
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isAdding, setIsAdding] = useState(false);
   const [product, setProduct] = useState({
     name: "",
     category: "",
@@ -20,18 +21,20 @@ const AddProduct = () => {
     setProduct((prevProduct) => ({ ...prevProduct, [id]: value }));
   };
 
+ // ADD PRODUCT
   const handleAddProduct = (e) => {
     e.preventDefault();
-    // Perform logic to add the product
-    // You can make a request to the server to add the product data
-    // For example:
+    setIsAdding(true);
+    
+  setTimeout(() => {
+      // Simulate a 2-second delay before redirecting
     fetch("http://localhost:8080/api/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(product),
+      body: JSON.stringify(product), // Converts the JavaScript object into a JSON string, with axios no need to do this
     })
       .then((res) => res.json())
       .then((data) => {
@@ -46,11 +49,10 @@ const AddProduct = () => {
         });
       })
       .catch((err) => console.log(err));
-      alert("Product added successfully");
-      navigate("/productlist");
-     
-
-        
+      setIsAdding(false); // When the request is finished, change isAdding back to false
+      // alert("Product added successfully");
+      navigate("/productlist");   
+   } , 1000);
   };
 
   return (
@@ -101,7 +103,12 @@ const AddProduct = () => {
           required
         ></textarea>
 
-        <button type="submit">Add Product</button>
+        <button type="submit"
+        // disabled={isAdding} // Disable the button when isAdding is true
+        style={{fontSize: "large", backgroundColor: isAdding ? "green" : "black", }}// Changes the background color to green when submitting}}
+        >
+          {isAdding ? "Adding Product..." : "Add Product"}
+        </button>
       </form>
     </div>
   );
