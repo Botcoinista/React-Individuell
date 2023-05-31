@@ -25,7 +25,7 @@ const App = () => {
         },
         {
           path: '/login',
-          element: <Login setUser={setUser} />
+          element: <Login setUser={setUser} /> 
         },
         {
           path: '/productlist',
