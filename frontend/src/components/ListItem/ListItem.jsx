@@ -1,7 +1,9 @@
 import {  useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ListItem = ({ product, setProducts }) => {
   const [isDeleting, setIsDeleting] = useState(false);
+  const navigate = useNavigate();
 
 
     const handleDeleteProduct = (event, productId) => {
@@ -30,7 +32,7 @@ const ListItem = ({ product, setProducts }) => {
             .finally(() => {
               setIsDeleting(false); // Set isDeleting back to false after the delay
             });
-        }, 2000);
+        }, 1000);
       };
 
   return (
@@ -58,7 +60,7 @@ const ListItem = ({ product, setProducts }) => {
             onClick={(event) =>
               handleDeleteProduct(event, product._id)
             } // Pass the productId to the handleDeleteProduct function
-            className="delete-btn"
+            className={isDeleting ? "delete-btn deleting" : "delete-btn"}
           >
             {isDeleting ? "Deleting..." : "Delete"}
           </button>

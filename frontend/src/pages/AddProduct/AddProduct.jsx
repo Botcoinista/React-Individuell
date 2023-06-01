@@ -26,7 +26,7 @@ const AddProduct = () => {
     e.preventDefault();
     setIsAdding(true);
     
-  // setTimeout(() => {
+  setTimeout(() => {
       // Simulate a 2-second delay before redirecting
     fetch("http://localhost:8080/api/products", {
       method: "POST",
@@ -52,7 +52,7 @@ const AddProduct = () => {
       })
       .catch((err) => console.log(err));
       // alert("Product added successfully");
-    // } , 1000);
+    } , 1000);
   };
 
   return (
@@ -103,7 +103,7 @@ const AddProduct = () => {
           required
         ></textarea>
 
-        <button type="submit"
+        <button className="submit-btn" type="submit"
         // disabled={isAdding} // Disable the button when isAdding is true
         style={{fontSize: "large", backgroundColor: isAdding ? "green" : "black", }}// Changes the background color to green when submitting}}
         >
