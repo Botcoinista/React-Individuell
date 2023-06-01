@@ -121,6 +121,15 @@
     flex: 1;
   }
 
+  .description-textarea {
+    width: 50%;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    resize: none;
+  }
+
   
 
 

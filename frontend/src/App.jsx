@@ -7,17 +7,18 @@ import ProductList from './pages/ProductList/ProductList'
 import ProductDetails from './pages/ProductDetails.jsx/ProductDetails'
 import AddProduct from './pages/AddProduct/AddProduct'
 import LoginForm from './pages/Login/Login'
+import { useState } from 'react'
 
 
 
 const App = () => {
 
-  const [user, setUser] = React.useState(null)
+  const [user, setUser] = useState(null)
 
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <RootLayout />,
+      element: <RootLayout user={user} setUser={setUser} />, //
       children: [
         {
           path: '/',
@@ -25,7 +26,7 @@ const App = () => {
         },
         {
           path: '/login',
-          element: <Login setUser={setUser} /> 
+          element: <Login user={user} setUser={setUser} /> 
         },
         {
           path: '/productlist',
@@ -45,7 +46,6 @@ const App = () => {
 
   return (
     <RouterProvider router={router} />
-
   )
 }
 

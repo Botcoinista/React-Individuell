@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "./ProductList.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ListItem from "../../components/ListItem/ListItem";
 
-const ProductList = () => {
+const ProductList = ({user}) => { // Pass the user state as a prop
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
@@ -16,6 +16,11 @@ const ProductList = () => {
       .then((data) => setProducts(data.allProducts)) // Sets the products state to the data from the database
       .catch((err) => console.log(err));
   }, []);
+
+  // If user is not logged in, redirect to the Login page
+  if(!user) return (
+    <Navigate to="/login" />
+  )
 
   return (
     <div>
