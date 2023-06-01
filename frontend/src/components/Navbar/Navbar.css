@@ -54,3 +54,9 @@
 .navbar .right-nav .nav-links .btn-logout:hover {
     color: #4f4f4f;
 }
+
+.logout-icon {
+    /* Add margin-right to create space between the logout button and the logo */
+    margin-left: 5px;
+  }
+  
