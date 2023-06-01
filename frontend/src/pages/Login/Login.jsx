@@ -4,7 +4,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import './Login.css'
 
 
-
 function LoginForm({ user, setUser}) {
 
   const navigate = useNavigate()
@@ -48,17 +47,8 @@ function LoginForm({ user, setUser}) {
         //Setting user to the data stored in the MongoDB
         setUser(res.data)
        
-
         //Save usertoken 
         localStorage.setItem('token', res.data.token)
-
-      //Ulrikas code
-        // if(res.data === 200) {
-        //   const { token } = res.data
-        //    //Save usertoken 
-        //    localStorage.setItem('token', token)
-        //   //Setting user to the data stored in the MongoDB
-        //   setUser(formData.email)
 
         //Resets the login-form
         setFormData({
@@ -76,15 +66,10 @@ function LoginForm({ user, setUser}) {
     }
   };
 
-
-
   //Logging user when updated.
   useEffect(() => {
     console.log(user)
   }, [user])
-
-
-
 
 
   return (
