@@ -144,7 +144,7 @@ const ProductDetails = () => {
                 type="submit"
                 // disabled={isUpdating} // Disable the button when isUpdating is true
                 style={{
-                  backgroundColor: isUpdating ? "green" : "red", // Changes the background color to green when submitting
+                  backgroundColor: isUpdating ? "green" : "black", // Changes the background color to green when submitting
                 }}
               >
                 {isUpdating ? "Updating Product..." : "Update Product"}  {/* {Change the button text to "Updating Product..." when submitting} */}
