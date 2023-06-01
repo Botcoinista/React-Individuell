@@ -43,4 +43,9 @@
   .submit-btn:hover {
     background-color: #4caf50  !important
   }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
   

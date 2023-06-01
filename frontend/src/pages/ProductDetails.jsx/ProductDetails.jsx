@@ -69,6 +69,7 @@ const ProductDetails = () => {
   return (
     <div className="product-details-container">
       <div className="product-details-card">
+      <h1 className="details-heading">Edit Product</h1>
         <div className="img">
           <img
             src={updatedProduct.imgURL || product.imgURL}
