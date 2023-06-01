@@ -26,7 +26,7 @@ const AddProduct = () => {
     e.preventDefault();
     setIsAdding(true);
     
-  setTimeout(() => {
+  // setTimeout(() => {
       // Simulate a 2-second delay before redirecting
     fetch("http://localhost:8080/api/products", {
       method: "POST",
@@ -47,12 +47,12 @@ const AddProduct = () => {
           price: "",
           description: "",
         });
+        setIsAdding(false); // When the request is finished, change isAdding back to false
+        navigate("/productlist");   
       })
       .catch((err) => console.log(err));
-      setIsAdding(false); // When the request is finished, change isAdding back to false
       // alert("Product added successfully");
-      navigate("/productlist");   
-   } , 1000);
+    // } , 1000);
   };
 
   return (
