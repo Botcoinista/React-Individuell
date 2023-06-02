@@ -8,18 +8,18 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
+  padding-bottom: 1rem;
 }
 
 .product-card {
   display: flex;
-  margin: 1rem auto 1rem; /* Added margin-top: 1rem */
+  margin: 1rem auto;
   max-width: 90%;
   padding: 2% 2%;
   border: 1px solid #ccc;
   background-color: #fff;
   border-radius: 4px;
   cursor: pointer;
-  margin-bottom: 1rem;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 50%);
 }
 
@@ -128,10 +128,15 @@
   flex: 1;
 }
 
+.productlist-description {
+  /* max-width: 20%; */
+  /* margin-bottom: 1rem; */
+}
+
 .description-textarea {
   width: 50%;
   height: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #ce1616;
   border-radius: 4px;
   padding: 0.5rem;
   resize: none;

@@ -6,6 +6,9 @@ import Login from './pages/Login/Login'
 import ProductList from './pages/ProductList/ProductList'
 import ProductDetails from './pages/ProductDetails.jsx/ProductDetails'
 import AddProduct from './pages/AddProduct/AddProduct'
+import AllOrders from './pages/AllOrders/AllOrders'
+import DetailsOrders from './pages/DetailsOrders/DetailsOrders'
+import OrderDetails from './pages/OrderDetails/OrderDetails'
 import LoginForm from './pages/Login/Login'
 import { useState } from 'react'
 
@@ -39,6 +42,14 @@ const App = () => {
         {
           path: '/add',
           element: <AddProduct />
+        },
+        {
+          path: '/orders',
+          element: <AllOrders user={user} />
+        },
+        {
+          path: '/orderdetails/:orderId',
+          element: <OrderDetails user={user} />
         }
       ]
     }

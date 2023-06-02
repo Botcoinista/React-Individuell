@@ -34,6 +34,10 @@ const Navbar = ({ user, setUser }) => {
                 <i className="fa-solid fa-plus fa-sm"></i>
               </li>
               <li>
+                <NavLink to="/orders">Orders</NavLink> {/*//If user is logged in, show the Add Product link*/}
+                <i className="fa-solid fa-plus fa-sm"></i>
+              </li>
+              <li>
                 <button onClick={Logout} className="textLight btn-logout">
                   Logout
                   <i class="logout-icon fa-solid fa-right-from-bracket"></i>                </button>
