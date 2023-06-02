@@ -82,9 +82,9 @@ function LoginForm({ user, setUser }) {
   }, [user]);
 
   return (
-    <div className="loginForm">
+   
       <div className="login-parent">
-        <div className="wrapper">
+       
           <form onSubmit={handleSubmit} noValidate>
             <div className="loginRegister">
               <p>Please Login To get Admin Access</p>
@@ -127,9 +127,9 @@ function LoginForm({ user, setUser }) {
               {isLoggingIn ? "Logging in..." : "Login"}
             </button>
           </form>
-        </div>
+       
       </div>
-    </div>
+   
   );
 }
 

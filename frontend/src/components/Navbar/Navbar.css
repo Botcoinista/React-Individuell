@@ -2,67 +2,91 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 80px;
     position: sticky;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 50%);
-}
-
-.left-nav {
+  }
+  
+  .left-nav {
     margin-left: 4rem;
-}
-
-.navbar .right-nav .nav-links {
+  }
+  
+  .navbar .right-nav .nav-links {
     display: flex;
     align-items: center;
     gap: 20px;
     margin-right: 4rem;
-}
-
-.navbar .right-nav .nav-links li {
+  }
+  
+  .navbar .right-nav .nav-links li {
     list-style: none;
     padding-right: 10px;
     border-bottom: 2px solid transparent;
-}
-
-.navbar .right-nav .nav-links li .fa-plus {
-    margin-left: .2rem;
+  }
+  
+  .navbar .right-nav .nav-links li .fa-plus {
+    margin-left: 0.2rem;
     color: Red;
-}
-
-.navbar .right-nav .nav-links a {
+  }
+  
+  .navbar .right-nav .nav-links a {
     color: Gray;
     text-decoration: none;
     font-size: 15px;
-}
-
-.navbar .right-nav .nav-links .textLight {
+  }
+  
+  .navbar .right-nav .nav-links .textLight {
     color: Gray;
-}
-
-.navbar .right-nav .nav-links li:hover {
+  }
+  
+  .navbar .right-nav .nav-links li:hover {
     border-bottom: 2px solid Gray;
-}
-
-.navbar .right-nav .nav-links a:hover {
+  }
+  
+  .navbar .right-nav .nav-links a:hover {
     color: #4f4f4f;
-}
-
-.navbar .right-nav .nav-links .btn-logout {
+  }
+  
+  .navbar .right-nav .nav-links .btn-logout {
     background-color: transparent;
     border: none;
     color: Gray;
     font-size: 15px;
     cursor: pointer;
     outline: none;
-}
-
-.navbar .right-nav .nav-links .btn-logout:hover {
+  }
+  
+  .navbar .right-nav .nav-links .btn-logout:hover {
     color: #4f4f4f;
-}
-
-.logout-icon {
+  }
+  
+  .logout-icon {
     /* Add margin-right to create space between the logout button and the logo */
     margin-left: 5px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .left-nav {
+      margin-left: 2rem;
+    }
+  
+    .navbar .right-nav .nav-links {
+      margin-right: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 590px) {
+    .left-nav {
+      margin-left: 1rem;
+    }
+  
+    .navbar .right-nav .nav-links {
+      margin-right: 1rem;
+    }
+
+    .nav-links {
+        margin: 0 1rem;
+    }
   }
   
