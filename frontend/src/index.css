@@ -26,15 +26,19 @@ input:not([type="checkbox"]) {
     outline: transparent;   
 }
 input:focus {
-    border-color: #ff0000;
+    border-color: #fa3150;
   }
 
   textarea {
     outline: transparent; 
+    font-size: 1rem;
+    font-weight: 500;
   }
   textarea:focus {
-    border-color: #ff0000;
+    border-color: #fa3150;
   }
+
+  
   
   
   

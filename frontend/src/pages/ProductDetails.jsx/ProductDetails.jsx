@@ -139,18 +139,18 @@ const ProductDetails = () => {
               }
               onChange={handleInputChange}
             />
-            <div className="update-btn">
-              <button
+            {/* <div className="update-btn"> */}
+              <button className="product-details-button"
                 type="submit"
                 // disabled={isUpdating} // Disable the button when isUpdating is true
                 style={{
-                  backgroundColor: isUpdating ? "green" : "black", // Changes the background color to green when submitting
-                }}
+                  fontSize: "large", backgroundColor: isUpdating ? "green" : "black", // Changes the background color to green when submitting
+                  }}
               >
                 {isUpdating ? "Updating Product..." : "Update Product"}  {/* {Change the button text to "Updating Product..." when submitting} */}
               
               </button>
-            </div>
+            {/* </div> */}
           </form>
         </div>
       </div>

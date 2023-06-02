@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 
 function LoginForm({ user, setUser }) {
-  const [isSubmitting, setisSubmitting] = useState(false);
+  const [isLoggingIn, setisLoggingIn] = useState(false);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ function LoginForm({ user, setUser }) {
       [e.target.name]: e.target.value,
     });
 
-    setError(null); // Reset the error message when input fields change
+    setError(null); // Reset the error message when input fields changes
   };
 
   const handleKeepLoggedInChange = (e) => {
@@ -32,12 +32,12 @@ function LoginForm({ user, setUser }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setisSubmitting(true);
+    setisLoggingIn(true);
     setError(null);
 
     if (formData.email === "" || formData.password === "") {
       setError("You have to fill in all fields!");
-      setisSubmitting(false);
+      setisLoggingIn(false);
       return;
     }
 
@@ -54,7 +54,7 @@ function LoginForm({ user, setUser }) {
 
           // Save usertoken
           localStorage.setItem("token", res.data.token);
-          setisSubmitting(false);
+          setisLoggingIn(false);
           // Resets the login-form
           setFormData({
             email: "",
@@ -67,12 +67,12 @@ function LoginForm({ user, setUser }) {
       if (err.response && err.response.status === 401) {
         console.log("Wrong email or password");
         setError("Wrong email or password");
-        setisSubmitting(false); // Resets the loading animation
+        setisLoggingIn(false); // Resets the loading animation
       } else {
         console.log(err);
         setError("Something went wrong while logging in");
       }
-      setisSubmitting(false); // Resets the loading animation
+      setisLoggingIn(false); // Resets the loading animation
     }
   };
 
@@ -123,8 +123,8 @@ function LoginForm({ user, setUser }) {
               </div>
             </div>
             <p className="error">{error}</p>
-            <button type="submit" id="btn-submit" disabled={isSubmitting}>
-              {isSubmitting ? "Logging in..." : "Login"}
+            <button type="submit" id="btn-submit" disabled={isLoggingIn}> 
+              {isLoggingIn ? "Logging in..." : "Login"}
             </button>
           </form>
         </div>
