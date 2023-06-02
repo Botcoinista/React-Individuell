@@ -5,6 +5,10 @@
   height: 600px!important;
 } */
 
+.login-container {
+  height: 100vh;
+}
+
 .login-parent {
   margin: 0 auto;
   margin-top: 10rem !important;

@@ -82,54 +82,52 @@ function LoginForm({ user, setUser }) {
   }, [user]);
 
   return (
-   
+    <div className="login-container">
       <div className="login-parent">
-       
-          <form onSubmit={handleSubmit} noValidate>
-            <div className="loginRegister">
-              <p>Please Login To get Admin Access</p>
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="loginRegister">
+            <p>Please Login To get Admin Access</p>
+          </div>
+          <br></br>
+
+          <label htmlFor="email">Email*</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor="password">Password*</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+
+          <div className="checkbox">
+            <div className="checkbox-label-parent">
+              <input
+                type="checkbox"
+                id="checkbox"
+                checked={keepLoggedIn}
+                onChange={handleKeepLoggedInChange}
+              />
+              <label htmlFor="checkbox">Please keep me logged in</label>
             </div>
-            <br></br>
-
-            <label htmlFor="email">Email*</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="password">Password*</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-
-            <div className="checkbox">
-              <div className="checkbox-label-parent">
-                <input
-                  type="checkbox"
-                  id="checkbox"
-                  checked={keepLoggedIn}
-                  onChange={handleKeepLoggedInChange}
-                />
-                <label htmlFor="checkbox">Please keep me logged in</label>
-              </div>
-            </div>
-            <p className="error">{error}</p>
-            <button type="submit" id="btn-submit" disabled={isLoggingIn}> 
-              {isLoggingIn ? "Logging in..." : "Login"}
-            </button>
-          </form>
-       
+          </div>
+          <p className="error">{error}</p>
+          <button type="submit" id="btn-submit" disabled={isLoggingIn}>
+            {isLoggingIn ? "Logging in..." : "Login"}
+          </button>
+        </form>
       </div>
-   
+    </div>
   );
 }
 
