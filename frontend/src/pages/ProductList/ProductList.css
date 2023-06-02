@@ -12,7 +12,7 @@
 
 .product-card {
   display: flex;
-  margin: 0 auto;
+  margin: 1rem auto 1rem; /* Added margin-top: 1rem */
   max-width: 90%;
   padding: 2% 2%;
   border: 1px solid #ccc;
@@ -138,7 +138,6 @@
 }
 
 @media screen and (max-width: 768px) {
-
   .product-h1 {
     margin-bottom: .2rem;
   }
@@ -164,7 +163,7 @@
     max-width: 100%;
     margin: 4% 4%;
     flex-direction: column;
-    margin-top: 1rem
+    margin-top: 1rem;
   }
 
   .product-btn {
@@ -195,7 +194,4 @@
     margin: 1rem 0;
     width: 70%;
   }
-
 }
-  
-
