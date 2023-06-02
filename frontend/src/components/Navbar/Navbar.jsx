@@ -40,7 +40,7 @@ const Navbar = ({ user, setUser }) => {
               <li>
                 <button onClick={Logout} className="textLight btn-logout">
                   Logout
-                  <i class="logout-icon fa-solid fa-right-from-bracket"></i>                </button>
+                  <i className="logout-icon fa-solid fa-right-from-bracket"></i>                </button>
               </li>
             </>
           ) : (
